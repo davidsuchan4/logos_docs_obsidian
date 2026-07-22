@@ -1,0 +1,1 @@
+The shell of logos is a [[user process]] that runs in the first  [[user processes#Process Slots]] it calls many other user processes such as [[mkdir]], [[ls]], and many more. It is esential since all communication with the kernel by the user is done through the shell.

@@ -1,0 +1,1 @@
+The ESP32c3 is a small board with a [[single core processor]] (cpu) it can be used for many things.

@@ -1,0 +1,1 @@
+Logisism is a simulator for creating circtuits. It has all kinds of different components to use and work with. 
