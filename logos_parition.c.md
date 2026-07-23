@@ -26,3 +26,7 @@ if (err != ESP_OK) {
 ```C
 int logos_partition_read(uint32_t offset, void *buf, uint32_t len)
 ```
+essentially wrapper around **esp_flash_read()** which is a built in function
+does check if the block to be read is within range and that pointer to buffer is not null before calling
+
+**esp_flash_read()** built in function to read data from flash memory
