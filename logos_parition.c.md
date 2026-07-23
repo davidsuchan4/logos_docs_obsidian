@@ -30,3 +30,19 @@ essentially wrapper around **esp_flash_read()** which is a built in function
 does check if the block to be read is within range and that pointer to buffer is not null before calling
 
 **esp_flash_read()** built in function to read data from flash memory
+
+## logos_partition_write
+```C
+int logos_partition_write(uint32_t offset, const void *buf, uint32_t len)
+```
+essentially a wrapper around **esp_flash_write()**
+
+**esp_flash_write()** built in function to write data to flash memory, this function itself does not have any alignment requirements however it does need the region being written to, to be erased. The erase function, **esp_flash_erase_region()** can only erase sectors i.e. 4096 bytes at a time
+
+
+## logos_partition_erase
+```C
+int logos_partition_erase(uint32_t offset, uint32_t len)
+```
+essentially a wrapper around **esp_flash_erase_region()**
+which means that it can only erase sectors i.e. 4096 bytes at a time

@@ -24,7 +24,8 @@ writes buffer to the specified block
 to write to a section of flash memory, esp requires that it be erased first and then written to
 when erasing a section of flash memory, esp can only erase sectors i.e. 4096 bytes at a time
 this is why we need to 
-- read the whole sector from flash in
-- modify the sector
+- read the whole sector from flash into buffer
+- modify the sector in the buffer
 - erase the sector from flash
-- write the modified sector into flash
+- write the modified sector from the buffer into flash
+- 
