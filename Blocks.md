@@ -21,3 +21,10 @@ does check if blocks have been initialised, if pointer to buffer is null and if 
 int block_write(uint32_t block_num, const void *buf)
 ```
 writes buffer to the specified block
+to write to a section of flash memory, esp requires that it be erased first and then written to
+when erasing a section of flash memory, esp can only erase sectors i.e. 4096 bytes at a time
+this is why we need to 
+- read the whole sector from flash in
+- modify the sector
+- erase the sector from flash
+- write the modified sector into flash
