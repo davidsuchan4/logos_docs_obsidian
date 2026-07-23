@@ -7,7 +7,7 @@ if (esp_flash_default_chip != NULL &&
 	return 0;
 }
 ```
-the first check makes sure a default plash-chip structure exists. if it didnt then the pointer wouldnt be safe to pass to another function since it wouldnt be pointing to anything
+the first check makes sure a default flash-chip structure exists. if it didnt then the pointer wouldnt be safe to pass to another function since it wouldnt be pointing to anything
 
 the function it is passed to checks if the flash chip is is already initialised and if it is then it simply exits with a success code
 
@@ -23,3 +23,6 @@ if (err != ESP_OK) {
 
 ## logos_partition_read
 
+```C
+int logos_partition_read(uint32_t offset, void *buf, uint32_t len)
+```
