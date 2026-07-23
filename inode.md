@@ -1,4 +1,15 @@
-An inode a.k.a an index node is a data structure which stores the meta data for a file or directory, it stores everything other than the name and the actual data.
+An inode a.k.a an index node is a data structure which stores the meta data for a file or directory, it stores everything other than the name and the actual data.o
+
+Inodes are stored in an inode table, these are the blocks of memory after the bitmap. 
+
+The [[superblock]] stores the following information about inodes:
+- total number of inodes
+- number of free inodes
+- starting block of inode table
+- length of inode table in blocks
+
+## root inode
+the root inode is the inode for the root directory. It has the inode number of 0. It is created in the fs_format() function
 
 ## inode struct
 
@@ -18,3 +29,4 @@ struct inode {
 };
 
 ```
+
