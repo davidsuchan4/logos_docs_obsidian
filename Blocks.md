@@ -28,4 +28,8 @@ this is why we need to
 - modify the sector in the buffer
 - erase the sector from flash
 - write the modified sector from the buffer into flash
-- 
+
+
+## block_count
+returns the total number of blocks, i.e. $\frac{\text{partition size} }{\text{block size}}$ 
+
