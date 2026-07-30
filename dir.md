@@ -175,6 +175,12 @@ return values:
 - return value of final [[inode#inode_free|inode_free()]] call
 - FS_ERR_INVALID: if the name of the directory to remove is "." or ".."
 - FS_ERR_IO: if the inode_read function call fails
-- FS_ERR_NOT_DIR: if directory to remove isn't 
-- FS_ERR_NOT_EMPTY:
+- FS_ERR_NOT_DIR: if directory to remove isn't a directory
+- FS_ERR_NOT_EMPTY: if directory to remove isn't empty
 - return values of other failed internal function calls
+
+params:
+- parent_ino: inode number of parent directory
+- \*name: name of directory to remove
+
+This function first checks that the name of the directory is not "." or "..", after that it looks up the directory in the parent directory, checks if it is actually a directory, checks if it is empty, removes "." and ".." from the directory, removes the directory from the parent directory and finally frees the inode
