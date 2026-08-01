@@ -23,6 +23,18 @@ This function first checks that the name of the file to create is not "." or "..
 ```C
 int file_read(uint32_t ino, uint32_t offset, void *buf, uint32_t len) 
 ```
-This function reads len number of bytes from a certain offset in the file into buf.
+This function reads len number of bytes from a certain offset in the file into buf, and returns the number of bytes successfully read
 
 return values:
+- returns the number of bytes successfully read 
+- FS_ERR_IO: if the inode or block reads fail
+- FS_ERR_IS_DIR: if the given file is actually a directory
+- 0: if the offset to read from is out of bounds
+
+params
+- ino: inode number of file to read from
+- offset: number of bytes after which we want to start reading
+- \*buf: buffer into which the contents of file will be read
+- len: number of bytes to read
+
+This function reads the inode, checks if it is a device file, if it is it calls the [[device#device_read|device_read()]] function. Makes sure the file isn't a directory. Adjusts the length to make sure we are not reading past the end of the file.
