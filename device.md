@@ -119,7 +119,7 @@ params:
 - major: major number of device
 - minor: minor number of device
 
-This function checks if the major number is valid and if the device exists. It then checks if the device has an close function, if it does it calls the close function, if it does not exist it return ok, as not having an close handler is fine.
+This function checks if the major number is valid and if the device exists. It then checks if the device has a close function, if it does it calls the close function, if it does not exist it return ok, as not having an close handler is fine.
 
 
 
@@ -128,3 +128,36 @@ This function checks if the major number is valid and if the device exists. It t
 int device_read(uint8_t major, uint8_t minor, void *buf, uint32_t len) 
 ```
 This function calls the given device's read function
+
+return values:
+- return value of device's read function
+- FS_ERR_NOT_FOUND: if invalid major number or device doesn't exit
+- FS_ERR_INVALID: if device doesn't have a read function
+
+params:
+- major: major number of device
+- minor: minor number of device
+- \*buf: buffer to be read into
+- len: length to be read
+
+This function checks if the major number is valid and if the device exists. It then checks if the device has a read function, if it does, it calls the read function.
+
+
+## device_write
+```C
+int device_write(uint8_t major, uint8_t minor, void *buf, uint32_t len) 
+```
+This function calls the given device's write function
+
+return values:
+- return value of device's write function
+- FS_ERR_NOT_FOUND: if invalid major number or device doesn't exit
+- FS_ERR_INVALID: if device doesn't have a write function
+
+params:
+- major: major number of device
+- minor: minor number of device
+- \*buf: buffer to be written from
+- len: length of buffer 
+
+This function checks if the major number is valid and if the device exists. It then checks if the device has a write function, if it does, it calls the write function.
