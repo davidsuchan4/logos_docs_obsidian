@@ -37,4 +37,4 @@ params
 - \*buf: buffer into which the contents of file will be read
 - len: number of bytes to read
 
-This function reads the inode, checks if it is a device file, if it is it calls the [[device#device_read|device_read()]] function. Makes sure the file isn't a directory. Adjusts the length to make sure we are not reading past the end of the file.
+This function reads the inode, checks if it is a device file, if it is it calls the [[device#device_read|device_read()]] function. Makes sure the file isn't a directory. Adjusts the length to make sure we are not reading past the end of the file. It then iterates through the relevant blocks of the file and reads from them and writes their content into the buffer. It also keeps track of how many bytes have been read and returns that.
